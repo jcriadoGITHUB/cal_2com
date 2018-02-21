@@ -1,0 +1,115 @@
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios>git clone https://github.com/jcriadoGITHUB/cal_2com
+Cloning into 'cal_2com'...
+remote: Counting objects: 7, done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 7
+Unpacking objects: 100% (7/7), done.
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios>cd cal_2com
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>dir
+ El volumen de la unidad D es Datos
+ El número de serie del volumen es: B86F-904F
+
+ Directorio de D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com
+
+21/02/2018  17:30    <DIR>          .
+21/02/2018  17:30    <DIR>          ..
+21/02/2018  17:30               367 calculator.html
+21/02/2018  17:30             1.090 LICENSE
+21/02/2018  17:30               101 README.md
+               3 archivos          1.558 bytes
+               2 dirs  50.379.452.416 bytes libres
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git branch
+* master
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git branch -vv
+* master b0e63ad [origin/master] x^2 button
+
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git log -a
+commit b0e63ad0a57510d65814ac8ff98c7eb16bf359c1 (HEAD -> master, origin/master, origin/HEAD)
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Tue Feb 14 19:23:10 2017 +0100
+
+    x^2 button
+
+commit 1096247078156a7fb1726d567d4345070d5eb5f0
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Tue Feb 14 18:53:39 2017 +0100
+
+    Readme & License
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git diff
+diff --git a/calculator.html b/calculator.html
+index 839b37e..6fd1a08 100644
+--- a/calculator.html
++++ b/calculator.html
+@@ -1,17 +1,21 @@
+ <!DOCTYPE html><html><head>
+ <title>Calculator</title><meta charset="utf-8">
+ <script type="text/javascript">
+-
+ function square() {
+   var num = document.getElementById("n1");
+   num.value = num.value * num.value;
+ }
+ </script>
++<style>
++button {
++       font-style: italic;
++}
++</style>
+ </head>
+ <body>
++<h1>Calculadora Juan Antonio CRIADO</h1>
+   Number:
+   <input type="text" id="n1"><p>
+-
+-  <button onclick="square()"> x<sup>2</sup> </button>
++  <button onclick="square()"> x <sup>2</sup></button>
+ </body>
+ </html>
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git add .
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git status -s
+M  calculator.html
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git commit -m "Calculadora: Autores"
+[master 7b3702e] Calculadora: Autores
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git log --oneline --graph
+* 7b3702e (HEAD -> master) Calculadora: Autores
+* b0e63ad (origin/master, origin/HEAD) x^2 button
+* 1096247 Readme & License
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git fetch https://github.com/jquemada/cal_branches inverse:inverse
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 1
+Unpacking objects: 100% (3/3), done.
+From https://github.com/jquemada/cal_branches
+ * [new branch]      inverse    -> inverse
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git branch
+  inverse
+* master
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git branch -vv
+  inverse e868dc4 1/x button
+* master  7b3702e [origin/master: ahead 1] Calculadora: Autores
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git log --oneline --graph
+* 7b3702e (HEAD -> master) Calculadora: Autores
+* b0e63ad (origin/master, origin/HEAD) x^2 button
+* 1096247 Readme & License
+
+D:\users\jcriado\cursos\GIT_GITHub\ejercicios\cal_2com>git log --all --oneline --graph
+* 7b3702e (HEAD -> master) Calculadora: Autores
+* b0e63ad (origin/master, origin/HEAD) x^2 button
+| * e868dc4 (inverse) 1/x button
+|/
+* 1096247 Readme & License
